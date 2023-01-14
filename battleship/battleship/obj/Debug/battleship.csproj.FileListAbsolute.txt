@@ -1,0 +1,11 @@
+C:\Users\User\Desktop\UNIPI\Γ SEMASTER\C#\Tests\battleship\battleship\bin\Debug\battleship.exe.config
+C:\Users\User\Desktop\UNIPI\Γ SEMASTER\C#\Tests\battleship\battleship\bin\Debug\battleship.exe
+C:\Users\User\Desktop\UNIPI\Γ SEMASTER\C#\Tests\battleship\battleship\bin\Debug\battleship.pdb
+C:\Users\User\Desktop\UNIPI\Γ SEMASTER\C#\Tests\battleship\battleship\obj\Debug\battleship.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\UNIPI\Γ SEMASTER\C#\Tests\battleship\battleship\obj\Debug\battleship.csproj.SuggestedBindingRedirects.cache
+C:\Users\User\Desktop\UNIPI\Γ SEMASTER\C#\Tests\battleship\battleship\obj\Debug\battleship.Form1.resources
+C:\Users\User\Desktop\UNIPI\Γ SEMASTER\C#\Tests\battleship\battleship\obj\Debug\battleship.Properties.Resources.resources
+C:\Users\User\Desktop\UNIPI\Γ SEMASTER\C#\Tests\battleship\battleship\obj\Debug\battleship.csproj.GenerateResource.cache
+C:\Users\User\Desktop\UNIPI\Γ SEMASTER\C#\Tests\battleship\battleship\obj\Debug\battleship.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\UNIPI\Γ SEMASTER\C#\Tests\battleship\battleship\obj\Debug\battleship.exe
+C:\Users\User\Desktop\UNIPI\Γ SEMASTER\C#\Tests\battleship\battleship\obj\Debug\battleship.pdb
