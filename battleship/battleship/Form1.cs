@@ -47,123 +47,121 @@ namespace battleship
                 }
             }
 
-            for (int y = 0; y < 4; y++)
+            bool flag = true;
+            bool flagy = true;
+            int tempxy = random.Next(0, 2);
+            int temp = random.Next(0, 99);
+            int tempx = temp / 10;
+            int tempy = temp % 10;
+            if (userShips[0] == "Aeroplanoforo")
             {
-                bool flag = true;
-                bool flagy = true;
-                int tempxy = random.Next(0, 2);
-                int temp = random.Next(0, 99);
-                int tempx = temp / 10;
-                int tempy = temp % 10;
-                if (userShips[0] == "Aeroplanoforo")
+                if (tempxy == 0)
                 {
-                    if (tempxy == 0)
+                    if (tempx < 6)
                     {
-                        if (tempx < 6)
-                        {
-                            userArray[tempx, tempy] = 1;
-                            userArray[tempx + 1, tempy] = 1;
-                            userArray[tempx + 2, tempy] = 1;
-                            userArray[tempx + 3, tempy] = 1;
-                            userArray[tempx + 4, tempy] = 1;
-                        }
-                        else
-                        {
-                            do
-                            {
-                                temp = random.Next(0, 99);
-                                tempx = temp / 10;
-                            } while (tempx >= 6);
-                            userArray[tempx, tempy] = 1;
-                            userArray[tempx + 1, tempy] = 1;
-                            userArray[tempx + 2, tempy] = 1;
-                            userArray[tempx + 3, tempy] = 1;
-                            userArray[tempx + 4, tempy] = 1;
-                        }
+                        userArray[tempx, tempy] = 1;
+                        userArray[tempx + 1, tempy] = 1;
+                        userArray[tempx + 2, tempy] = 1;
+                        userArray[tempx + 3, tempy] = 1;
+                        userArray[tempx + 4, tempy] = 1;
                     }
                     else
                     {
-                        if (tempy < 6)
+                        do
                         {
-                            userArray[tempx, tempy] = 1;
-                            userArray[tempx, tempy + 1] = 1;
-                            userArray[tempx, tempy + 2] = 1;
-                            userArray[tempx, tempy + 3] = 1;
-                            userArray[tempx, tempy + 4] = 1;
-                        }
-                        else
-                        {
-                            do
-                            {
-                                temp = random.Next(0, 99);
-                                tempy = temp % 10;
-                            } while (tempy >= 6);
-                            userArray[tempx, tempy] = 1;
-                            userArray[tempx, tempy + 1] = 1;
-                            userArray[tempx, tempy + 2] = 1;
-                            userArray[tempx, tempy + 3] = 1;
-                            userArray[tempx, tempy + 4] = 1;
-                        }
+                            temp = random.Next(0, 99);
+                            tempx = temp / 10;
+                        } while (tempx >= 6);
+                        userArray[tempx, tempy] = 1;
+                        userArray[tempx + 1, tempy] = 1;
+                        userArray[tempx + 2, tempy] = 1;
+                        userArray[tempx + 3, tempy] = 1;
+                        userArray[tempx + 4, tempy] = 1;
                     }
-                    userShips.RemoveAt(0);
-                    tempxy = random.Next(0, 2);
-                    temp = random.Next(0, 99);
-                    tempx = temp / 10;
-                    tempy = temp % 10;
-                    if (userShips[0] == "Antitorpiliko")
+                }
+                else
+                {
+                    if (tempy < 6)
                     {
-                        if (tempxy == 0)
+                        userArray[tempx, tempy] = 1;
+                        userArray[tempx, tempy + 1] = 1;
+                        userArray[tempx, tempy + 2] = 1;
+                        userArray[tempx, tempy + 3] = 1;
+                        userArray[tempx, tempy + 4] = 1;
+                    }
+                    else
+                    {
+                        do
                         {
-                            int pos = Line(userArray, tempx, 4) - 4;
-                             flag = pos >=0 && pos + 4 <= 6;
-                            if (flag)// to chabge it if neccesery
-                            {
-                                userArray[pos, tempy] = 1;
-                                userArray[pos + 1, tempy] = 1;
-                                userArray[pos + 2, tempy] = 1;
-                                userArray[pos + 3, tempy] = 1;
-                            }
-                            else
-                            {
-                                do
-                                {
-                                    temp = random.Next(0, 99);
-                                    tempx = temp / 10;
-                                } while (Line(userArray, tempx, 4) != -1);
-                                userArray[pos, tempy] = 1;
-                                userArray[pos + 1, tempy] = 1;
-                                userArray[pos + 2, tempy] = 1;
-                                userArray[pos + 3, tempy] = 1;
-                            }
-                        }
-                        else
+                            temp = random.Next(0, 99);
+                            tempy = temp % 10;
+                        } while (tempy >= 6);
+                        userArray[tempx, tempy] = 1;
+                        userArray[tempx, tempy + 1] = 1;
+                        userArray[tempx, tempy + 2] = 1;
+                        userArray[tempx, tempy + 3] = 1;
+                        userArray[tempx, tempy + 4] = 1;
+                    }
+                }            
+            }
+            userShips.RemoveAt(0);
+            tempxy = random.Next(0, 2);
+            temp = random.Next(0, 99);
+            tempx = temp / 10;
+            tempy = temp % 10;
+            if (userShips[0] == "Antitorpiliko")
+            {
+                if (tempxy == 0)
+                {
+                    int pos = Line(userArray, tempx, 4) - 4;
+                    flag = pos >= 0 && pos + 4 <= 6;
+                    if (flag)// to chabge it if neccesery
+                    {
+                        userArray[pos, tempy] = 1;
+                        userArray[pos + 1, tempy] = 1;
+                        userArray[pos + 2, tempy] = 1;
+                        userArray[pos + 3, tempy] = 1;
+                    }
+                    else
+                    {
+                        do
                         {
-                            int posy = Liney(userArray, tempy, 4) - 4;
-                             flagy = (posy >=0) && (posy + 4 <= 6);
-                            if (flagy) // to chabge it if neccesery
-                            {
-                                userArray[tempx, posy] = 1;
-                                userArray[tempx, posy + 1] = 1;
-                                userArray[tempx, posy + 2] = 1;
-                                userArray[tempx, posy + 3] = 1;
+                            temp = random.Next(0, 99);
+                            tempx = temp / 10;
+                        } while (Line(userArray, tempx, 4) != -1);
+                        userArray[pos, tempy] = 1;
+                        userArray[pos + 1, tempy] = 1;
+                        userArray[pos + 2, tempy] = 1;
+                        userArray[pos + 3, tempy] = 1;
+                    }
+                }
+                else
+                {
+                    int posy = Liney(userArray, tempy, 4) - 4;
+                    flagy = (posy >= 0) && (posy + 4 <= 6);
+                    if (flagy) // to chabge it if neccesery
+                    {
+                        userArray[tempx, posy] = 1;
+                        userArray[tempx, posy + 1] = 1;
+                        userArray[tempx, posy + 2] = 1;
+                        userArray[tempx, posy + 3] = 1;
 
-                            }
-                            else
-                            {
-                                do
-                                {
-                                    temp = random.Next(0, 99);
-                                    tempy = temp % 10;
-                                } while (Liney(userArray, tempy, 4) != -1);
-                                userArray[tempx, posy] = 1;
-                                userArray[tempx, posy + 1] = 1;
-                                userArray[tempx, posy + 2] = 1;
-                                userArray[tempx, posy + 3] = 1;
-                            }
-                        }
+                    }
+                    else
+                    {
+                        do
+                        {
+                            temp = random.Next(0, 99);
+                            tempy = temp % 10;
+                        } while (Liney(userArray, tempy, 4) != -1);
+                        userArray[tempx, posy] = 1;
+                        userArray[tempx, posy + 1] = 1;
+                        userArray[tempx, posy + 2] = 1;
+                        userArray[tempx, posy + 3] = 1;
                     }
                 }
             }
+
 
 
             for (int i = 0; i < 10; i++)
@@ -189,19 +187,8 @@ namespace battleship
                 locx = locx - 300;
             }
 
-            for (int i = 0; i < 10; i++)
-            {
-                for (int y = 0; y < 10; y++)
-                {
-                    Console.WriteLine(userArray[i, y]);
-                }
-                Console.WriteLine("\n");
-            }
 
-
-
-
-            int locbx = 500;
+           int locbx = 500;
             int locby = 100;
             string nameb = "1";
             int[,] botArray = new int[10, 10];
