@@ -47,14 +47,12 @@ namespace battleship
                 }
             }
 
-            bool flag = true;
-            bool flagy = true;
             int tempxy = random.Next(0, 2);
-            int temp = random.Next(0, 99);
-            int tempx = temp / 10;
-            int tempy = temp % 10;
+            int tempx = random.Next(0, 10);
+            int tempy = random.Next(0, 10);
             if (userShips[0] == "Aeroplanoforo")
-            {
+            { 
+        
                 if (tempxy == 0)
                 {
                     if (tempx < 6)
@@ -69,8 +67,8 @@ namespace battleship
                     {
                         do
                         {
-                            temp = random.Next(0, 99);
-                            tempx = temp / 10;
+                            tempx = random.Next(0, 10);
+                            tempy = random.Next(0, 10);
                         } while (tempx >= 6);
                         userArray[tempx, tempy] = 1;
                         userArray[tempx + 1, tempy] = 1;
@@ -93,8 +91,8 @@ namespace battleship
                     {
                         do
                         {
-                            temp = random.Next(0, 99);
-                            tempy = temp % 10;
+                            tempx = random.Next(0, 10);
+                            tempy = random.Next(0, 10);
                         } while (tempy >= 6);
                         userArray[tempx, tempy] = 1;
                         userArray[tempx, tempy + 1] = 1;
@@ -102,63 +100,68 @@ namespace battleship
                         userArray[tempx, tempy + 3] = 1;
                         userArray[tempx, tempy + 4] = 1;
                     }
-                }            
+                }
             }
-            userShips.RemoveAt(0);
-            tempxy = random.Next(0, 2);
-            temp = random.Next(0, 99);
-            tempx = temp / 10;
-            tempy = temp % 10;
-            if (userShips[0] == "Antitorpiliko")
+
+            if (userShips[1] == "Antitorpiliko")
             {
+                 tempx = random.Next(0, 10);
+                 tempy = random.Next(0, 10);
+                 tempxy = random.Next(0, 2);
                 if (tempxy == 0)
                 {
-                    int pos = Line(userArray, tempx, 4) - 4;
-                    flag = pos >= 0 && pos + 4 <= 6;
-                    if (flag)// to chabge it if neccesery
+                    while (tempx > 6 && (userArray[tempx, tempy] == 1 && userArray[tempx + 1, tempy] == 1 && userArray[tempx + 2, tempy] == 1 && userArray[tempx + 3, tempy] == 1))
                     {
-                        userArray[pos, tempy] = 1;
-                        userArray[pos + 1, tempy] = 1;
-                        userArray[pos + 2, tempy] = 1;
-                        userArray[pos + 3, tempy] = 1;
+                        tempx = random.Next(0, 10);
+                        tempy = random.Next(0, 10);
                     }
-                    else
-                    {
-                        do
-                        {
-                            temp = random.Next(0, 99);
-                            tempx = temp / 10;
-                        } while (Line(userArray, tempx, 4) != -1);
-                        userArray[pos, tempy] = 1;
-                        userArray[pos + 1, tempy] = 1;
-                        userArray[pos + 2, tempy] = 1;
-                        userArray[pos + 3, tempy] = 1;
-                    }
+                    userArray[tempx, tempy] = 1;
+                    userArray[tempx + 1, tempy] = 1;
+                    userArray[tempx + 2, tempy] = 1;
+                    userArray[tempx + 3, tempy] = 1;
                 }
                 else
                 {
-                    int posy = Liney(userArray, tempy, 4) - 4;
-                    flagy = (posy >= 0) && (posy + 4 <= 6);
-                    if (flagy) // to chabge it if neccesery
+                    while (tempy > 6 && (userArray[tempx, tempy] == 1 && userArray[tempx, tempy + 1] == 1 && userArray[tempx, tempy + 2] == 1 && userArray[tempx, tempy + 3] == 1) )
                     {
-                        userArray[tempx, posy] = 1;
-                        userArray[tempx, posy + 1] = 1;
-                        userArray[tempx, posy + 2] = 1;
-                        userArray[tempx, posy + 3] = 1;
+                        tempx = random.Next(0, 10);
+                        tempy = random.Next(0, 10);
+                        
+                    }
+                    userArray[tempx, tempy] = 1;
+                    userArray[tempx, tempy + 1] = 1;
+                    userArray[tempx, tempy + 2] = 1;
+                    userArray[tempx, tempy + 3] = 1;
+                }
+            }
+
+            if (userShips[2] == "Polemiko")
+            {
+                tempx = random.Next(0, 10);
+                tempy = random.Next(0, 10);
+                tempxy = random.Next(0, 2);
+                if (tempxy == 0)
+                {
+                    while (tempx > 7 && (userArray[tempx, tempy] == 1 && userArray[tempx + 1, tempy] == 1 && userArray[tempx + 2, tempy] == 1 ))
+                    {
+                        tempx = random.Next(0, 10);
+                        tempy = random.Next(0, 10);
+                    }
+                    userArray[tempx, tempy] = 1;
+                    userArray[tempx + 1, tempy] = 1;
+                    userArray[tempx + 2, tempy] = 1;
+                }
+                else
+                {
+                    while (tempy > 6 && (userArray[tempx, tempy] == 1 && userArray[tempx, tempy + 1] == 1 && userArray[tempx, tempy + 2] == 1 ))
+                    {
+                        tempx = random.Next(0, 10);
+                        tempy = random.Next(0, 10);
 
                     }
-                    else
-                    {
-                        do
-                        {
-                            temp = random.Next(0, 99);
-                            tempy = temp % 10;
-                        } while (Liney(userArray, tempy, 4) != -1);
-                        userArray[tempx, posy] = 1;
-                        userArray[tempx, posy + 1] = 1;
-                        userArray[tempx, posy + 2] = 1;
-                        userArray[tempx, posy + 3] = 1;
-                    }
+                    userArray[tempx, tempy] = 1;
+                    userArray[tempx, tempy + 1] = 1;
+                    userArray[tempx, tempy + 2] = 1;
                 }
             }
 
